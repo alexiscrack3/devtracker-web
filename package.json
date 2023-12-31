@@ -1,12 +1,19 @@
 {
+  "name": "devtracker-web",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "keywords": [],
+  "author": "Alexis Ortega",
+  "license": "ISC",
+  "description": "",
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack --mode production --config webpack.config.js"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1"
-  },
-  "scripts": {
-    "start": "webpack serve",
-    "build": "webpack --mode production --config webpack.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",
