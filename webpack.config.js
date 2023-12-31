@@ -10,7 +10,7 @@ module.exports = {
     application: "./src/index.tsx",
   },
   output: {
-    filename: "[name].js",
+    filename: "bundle.js",
     sourceMapFilename: "[file].map",
     path: path.resolve(__dirname, "dist"),
   },
@@ -54,7 +54,9 @@ module.exports = {
       template: "./public/index.html",
       filename: "./index.html",
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "stylesheets/[name].css",
+    }),
   ],
   devServer: {
     static: {
