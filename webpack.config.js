@@ -6,7 +6,7 @@ module.exports = {
   mode: "production",
   devtool: "source-map",
   entry: {
-    application: "./src/index.js",
+    application: "./src/index.tsx",
   },
   output: {
     filename: "[name].js",
@@ -22,10 +22,17 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "ts-loader",
+        },
+      },
     ],
   },
   resolve: {
-    extensions: [".js"],
+    extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
