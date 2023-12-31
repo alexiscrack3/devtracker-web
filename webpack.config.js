@@ -12,6 +12,15 @@ module.exports = {
     sourceMapFilename: "[file].map",
     path: path.resolve(__dirname, "dist"),
   },
+  rules: [
+    {
+      test: /\.(js|jsx|es6)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader",
+      },
+    },
+  ],
   resolve: {
     extensions: [".js"],
   },
