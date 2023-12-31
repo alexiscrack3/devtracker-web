@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -12,21 +13,28 @@ module.exports = {
     sourceMapFilename: "[file].map",
     path: path.resolve(__dirname, "dist"),
   },
-  rules: [
-    {
-      test: /\.(js|jsx|es6)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: "babel-loader",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx|es6)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
       },
-    },
-  ],
+    ],
+  },
   resolve: {
     extensions: [".js"],
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1,
+    }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: "./public/index.html",
+      filename: "./index.html",
     }),
   ],
 };
